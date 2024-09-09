@@ -18,16 +18,19 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Google Summer of Code 2024
+title: Google Summer of Code 2024 - Kiwix
 email: orjiuchechukwu52@yahoo.com
+author:
+  - Uchechukwu Orji
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "elfkuzco.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  elfkuzco
 
 # Build settings
-theme: jekyll-theme-cayman
+remote_theme: pages-themes/slate@v0.2.0
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme # add this line to the plugins list if you already have one
 
 # Exclude from processing.
 # The following items will not be processed, by default.
