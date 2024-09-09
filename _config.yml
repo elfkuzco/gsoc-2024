@@ -22,7 +22,7 @@ title: Google Summer of Code 2024 - Kiwix
 email: orjiuchechukwu52@yahoo.com
 author:
   - Uchechukwu Orji
-baseurl: "" # the subpath of your site, e.g. /blog
+#baseurl: "" # the subpath of your site, e.g. /blog
 url: "elfkuzco.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  elfkuzco
 
