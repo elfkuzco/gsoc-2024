@@ -8,7 +8,7 @@ In the summer of 2024, I participated in <a href="https://summerofcode.withgoogl
 <a href="https://summerofcode.withgoogle.com/programs/2024/projects/kr1RiKiJ" target="_blank">Automated Download Speed Testing</a>
 solution that tests the download speed of users to Kiwix download mirrors from various locations on Earth. The goal of the project
 was to provide the organization with data and analytics that would help them re-configure
-<a href="https://mirrorbrain.org/" target="_blank">MirrorBrain</a>to direct users to the _"best"_
+<a href="https://mirrorbrain.org/" target="_blank">MirrorBrain</a> to direct users to the _"best"_
 mirrors for their region. Overall, this would ensure fast and reliable download speeds for all users.
 
 ### About the Organization
@@ -85,7 +85,7 @@ process it and use it to configure MirrorBrain.
 ### Things I Learned
 
 Working on the project made me become more proficient with industry tools like
-<a href="https://docs.github.com/en/actions" targe="_blank">GitHub Actions</a>
+<a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions</a>
 and <a href="https://docs.docker.com/" target="_blank">Docker</a>. Prior to this project, I had only
 used some of their well-known features for my hobby projects.
 
