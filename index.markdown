@@ -95,7 +95,7 @@ used some of their well-known features for my hobby projects.
 
 Also, I learnt a lot more about SQL than I had ever used before. Features like 
 <a href="https://www.postgresqltutorial.com/postgresql-window-function/" target="_blank">window functions</a>
-and even <a href="https://www.postgresqltutorial.com/postgresql-plpgsql/postgresql-create-function/">creating custom functions</a>
+and even <a href="https://www.postgresqltutorial.com/postgresql-plpgsql/postgresql-create-function/" target="_blank">creating custom functions</a>
 were things I had never used before but they ended up playing a crucial role in the achievement the goal of the project.
 
 ### Acknowledgements
