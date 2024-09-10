@@ -36,10 +36,11 @@ At a high level, the project involved:
 ### Work Done
 
 The project was a large 350-hour project that spanned
-<a href="https://github.com/kiwix/mirrors-qa/pulls?q=is%3Apr+is%3Aclosed+author%3Aelfkuzco" target="_blank">over 20 pull requests</a>.
+<a href="https://github.com/kiwix/mirrors-qa/pulls?q=is%3Apr+is%3Aclosed+author%3Aelfkuzco" target="_blank">over 20 pull requests</a>
+with Python and SQL the primary languages used in development.
 The code for the project lives on <a href="https://github.com/kiwix/mirrors-qa" target="_blank">kiwix/mirrors-qa</a>.
 
-Python and SQL were the primary languages used in the development of the project.
+
 In order to avoid tight-coupling of logic, the project was split into three core services namely:
 
 - **backend**: This service, written in Python, comprises:
@@ -47,7 +48,7 @@ In order to avoid tight-coupling of logic, the project was split into three core
   - **Scheduler**: A script that periodically creates tasks for _"idle"_ workers.
   - **CLI**: An entrypoint that exposes sub-commands for registering workers and updating mirror metadata in the database.
 - **worker**: Also written in Python, this service records the download speed metrics across mirrors from various locations
-  and submits the results to the backend. It achieves this through the following sub-services:
+  and submits the results to the backend. It achieves this through the following components:
   - **task**: A service that downloads a file from a mirror, records the speed metrics such as latency, duration, etc.
     and writes results to disk.
   - **manager**: On receiving a task from the backend, this service communicates with the Docker daemon and:
@@ -56,7 +57,7 @@ In order to avoid tight-coupling of logic, the project was split into three core
     - configures the task container to use the network stack of the Wireguard container.
     - binds its filesystem to that of the task service.
     - reads results and submits to the backend web server.
-- **dashboard**: builds up a Metabase dashboard with SQL queries to answer questions including but not limited to:
+- **dashboard**: This service builds up a Metabase dashboard with SQL queries to answer questions including but not limited to:
   - Which regions/countries are slow to download from for a particular mirror?
   - What are the top mirrors for a region/country?
   - How does the _current_ speed within a period compare to the median speed before the period?
@@ -65,16 +66,19 @@ All services were containerized using Docker, making it easy to set up and deplo
 
 ### Challenges
 
-The biggest challenges I faced during the project was working around the limitations of the open source version of Metabase.
-At the time of writing, it didn't have support for charts like the Box Plot and the Pivot table didn't have support for
+The biggest challenges I faced during the project revolved around the limitations of the open source version of Metabase.
+At the time of writing, it didn't have support for charts like the 
+<a href="https://github.com/metabase/metabase/issues/10783" target="_blank">Box Plot</a>and the 
+<a href="https://github.com/metabase/metabase/issues/13799" target="_blank">Pivot table</a> didn't have support for
 sticky columns.
 
 Also, filter names could not be scoped to a specific tab in the dashboard. This made it difficult to have filters that shared
-the same name but didn't necessarily have to be connected.
+the same name in different tabs but didn't necessarily have to be connected.
 
 Another challenge I had was developing a script to download all Wireguard configuration files from ProtonVPN. I hacked
 around it by digging through their core libraries and experimenting with their ABC classes. It was a thrilling experience and I couldn't
-have done it without <a href="https://github.com/BurntSushi/ripgrep" target="_blank">ripgrep</a> to scan for _"possible"_ variable names and methods.
+have done it without <a href="https://github.com/BurntSushi/ripgrep" target="_blank">ripgrep</a> to scan for _"helpful"_ 
+variable names and methods across their core libraries.
 
 ### Future Work
 
@@ -86,18 +90,20 @@ process it and use it to configure MirrorBrain.
 
 Working on the project made me become more proficient with industry tools like
 <a href="https://docs.github.com/en/actions" target="_blank">GitHub Actions</a>
-and <a href="https://docs.docker.com/" target="_blank">Docker</a>. Prior to this project, I had only
+and <a href="https://docs.docker.com/" target="_blank">Docker</a>. Prior to the project, I had only
 used some of their well-known features for my hobby projects.
 
-Also, I learnt a lot more about SQL than I had ever used before. Features like window functions and even creating custom functions
-were things I had never used before but ended up playing a crucial role in the achievement the goal of the project.
+Also, I learnt a lot more about SQL than I had ever used before. Features like 
+<a href="https://www.postgresqltutorial.com/postgresql-window-function/" target="_blank">window functions</a>
+and even <a href="https://www.postgresqltutorial.com/postgresql-plpgsql/postgresql-create-function/">creating custom functions</a>
+were things I had never used before but they ended up playing a crucial role in the achievement the goal of the project.
 
 ### Acknowledgements
 
 I express gratitude to Google for providing me with this opportunity to contribute to Open Source Software
 and develop my skills at the same time.
 
-Thanks to the team at Kiwix for reviewing my PRs during the submission phase, accepting my proposal and
+Thanks to the team at Kiwix for reviewing my pull requests during the submission phase, accepting my proposal and
 making this a reality.
 
 Most thanks of all goes to my project mentor <a href="https://github.com/rgaudin" target="_blank">Renaud Gaudin</a> for his feedback and help with
